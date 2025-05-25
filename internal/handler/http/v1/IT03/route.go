@@ -8,7 +8,7 @@ import (
 
 func Routes(r chi.Router, cfg *app.AppConfig) {
 
-	it03 := it03.New(cfg.Database)
+	it03 := it03.New(cfg.Database.Pool)
 	h := New(Dependencies{
 		IT03: it03,
 	})

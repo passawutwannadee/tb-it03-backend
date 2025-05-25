@@ -4,7 +4,6 @@ import (
 	"context"
 
 	postgresrepo "github.com/passawutwannadee/tb-it03/internal/repo/postgres"
-	"github.com/passawutwannadee/tb-it03/pkg/postgres"
 )
 
 type UseCase interface {
@@ -13,13 +12,11 @@ type UseCase interface {
 }
 
 type useCase struct {
-	pg     *postgres.Postgres
 	pgRepo *postgresrepo.Queries
 }
 
-func New(db *postgres.Postgres) UseCase {
+func New(db postgresrepo.DBTX) UseCase {
 	return &useCase{
-		pg:     db,
-		pgRepo: postgresrepo.New(db.Pool),
+		pgRepo: postgresrepo.New(db),
 	}
 }
