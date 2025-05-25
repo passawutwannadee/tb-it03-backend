@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    volumes:
+      - ./:/app
+    environment:
+      - TZ=Asia/Bangkok
+    networks:
+      - app_network
+
+  db:
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+      TZ: "Asia/Bangkok"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d  # Mount the init-scripts directory
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge
