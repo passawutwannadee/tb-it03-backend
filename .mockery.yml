@@ -1,0 +1,16 @@
+all: false
+force-file-write: true
+formatter: goimports
+log-level: info
+structname: '{{.Mock}}{{.InterfaceName}}'
+recursive: false
+require-template-schema-exists: true
+template: testify
+template-schema: '{{.Template}}.schema.json'
+packages:
+  github.com/passawutwannadee/tb-it03/internal/usecase/it03:
+    config:
+      all: true
+      dir: internal/usecase/it03/mock
+      filename: mock.go
+      pkgname: 'it03_mock'
