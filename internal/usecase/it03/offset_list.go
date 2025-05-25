@@ -2,7 +2,6 @@ package it03
 
 import (
 	"context"
-	"fmt"
 
 	postgresrepo "github.com/passawutwannadee/tb-it03/internal/repo/postgres"
 )
@@ -17,8 +16,6 @@ func (u *useCase) OffsetList(ctx context.Context) (*PaginatedList, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	fmt.Println(lists)
 
 	// total, err := u.pgRepo.IT03Count(ctx)
 	// if err != nil {
