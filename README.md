@@ -15,3 +15,7 @@
   ```
     docker-compose up
   ```
+## Postman collection
+  ```
+  https://drive.google.com/file/d/1BXInxOOwa-oS50KzxM8-2JDlXMe-dq15/view?usp=sharing
+  ```
