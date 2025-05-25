@@ -2,7 +2,6 @@ package it03apiv1_test
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 
@@ -65,7 +64,7 @@ func (t *IT03HandlerTestSuite) TestList() {
 					Once()
 			}
 
-			req := httptest.NewRequest(http.MethodGet, fmt.Sprintf("/"), nil)
+			req := httptest.NewRequest(http.MethodGet, "/", nil)
 			w := httptest.NewRecorder()
 
 			t.handler.List(w, req)
