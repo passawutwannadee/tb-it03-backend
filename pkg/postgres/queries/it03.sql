@@ -7,7 +7,8 @@ SELECT
     s.status
 FROM it03 i
 LEFT JOIN it03_statuses s ON i.status_id = s.id
-WHERE deleted_at is NULL;
+WHERE deleted_at is NULL
+ORDER BY i.id;
 
 -- name: IT03Count :one
 SELECT COUNT(*) FROM it03 WHERE deleted_at is NULL;

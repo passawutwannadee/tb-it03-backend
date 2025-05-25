@@ -30,6 +30,7 @@ SELECT
 FROM it03 i
 LEFT JOIN it03_statuses s ON i.status_id = s.id
 WHERE deleted_at is NULL
+ORDER BY i.id
 `
 
 type IT03ListRow struct {
